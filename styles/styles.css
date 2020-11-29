@@ -30,7 +30,7 @@ h1 {
   color:#a99f92;
   text-shadow: 0px 5px 15px #511a00;
   position:fixed;
-  margin: 8rem 0;
+  margin: 6rem 0;
 }
 
 nav {
@@ -41,7 +41,7 @@ nav {
 
 nav ul {
  display:flex;
- justify-content: space-between;
+ justify-content: space-around;
  list-style: none;
  padding: 0;
 }
@@ -49,12 +49,18 @@ nav ul {
 nav li {
   list-style: none;
   font-family: sans-serif;
-
+  font-size:1.25rem;
+  letter-spacing:.15rem;
 }
 
 a {
   text-decoration: none;
   color: #f0f8ff7a;
+  transition: all 200ms;
+}
+
+a:hover {
+  color: aliceblue;
 }
 
 main {
@@ -70,6 +76,14 @@ section {
 }
 
 article {background: rgba(0,0,0,0.4); z-index: 10;}
+
+article.prints {
+  padding: 3rem;
+  color:aliceblue;
+  text-align: center;
+  font-family: 'Xanh Mono', monospace;
+
+}
 
 figure {
   background: #000;
@@ -107,4 +121,26 @@ figcaption {
   font-size: 1.75rem;
   padding: 0 0 1rem 0;
   z-index: 10;
+}
+
+footer {
+      background: transparent;
+      margin: 3rem 0 0 0;
+      display:flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items:center;
+      padding:1rem;
+}
+
+footer nav {
+  top: 0px
+}
+
+small {
+  display:block;
+  font-family:sans-serif;
+  color:antiquewhite;
+  font-size:.85rem;
+  margin: 1rem 0 0 0;
 }
