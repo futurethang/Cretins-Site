@@ -26,4 +26,22 @@ document.addEventListener("DOMContentLoaded", function () {
       lazyImageObserver.observe(lazyImage);
     });
   }
+
+  // END LAZY LOADING CODE
+
+  // JSON IMAGE LOADING
+
+  const images = fetch("https://cretinsdata-default-rtdb.firebaseio.com/", {
+    method: "GET",
+    mode: "no-cors"
+  }).then((response) => {
+    // debugger;
+    const data = response.json()
+    console.log(data)
+    return data
+  }).catch(err => {
+    console.log(err)
+  })
+
+
 });
