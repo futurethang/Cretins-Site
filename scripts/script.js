@@ -31,17 +31,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // JSON IMAGE LOADING
 
-  const images = fetch("https://cretinsdata-default-rtdb.firebaseio.com/", {
-    method: "GET",
-    mode: "no-cors"
-  }).then((response) => {
-    // debugger;
-    const data = response.json()
-    console.log(data)
-    return data
-  }).catch(err => {
-    console.log(err)
-  })
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC55OeSNTOLEYP0DOpILPMp48V5BQDV6rY",
+    authDomain: "cretinsdata.firebaseapp.com",
+    databaseURL: "https://cretinsdata-default-rtdb.firebaseio.com/",
+    projectId: "cretinsdata",
+    storageBucket: "cretinsdata.appspot.com",
+    messagingSenderId: "795175842950",
+    appId: "1:795175842950:web:6406701ebda7431a7f0d07"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
+  const dbRef = firebase.database().ref();
+  const artsList = firebase.database().ref('artworks').get().then(data =>{
+    return data.toJSON()
+  }).then(data => {
+    console.log(data);
+    // do something with the dataset
+    renderImages(data);
+    return data
+  }).catch(err=>console.log(err));
+
+
+  function renderImages(data) {
+    for (let item in data) {
+      // console.log(data[item])
+      let $element = document.createElement("article");
+      $element.classList.add("cretin");
+      console.log($element)
+    };
+
+  }
 
 });
